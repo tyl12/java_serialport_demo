@@ -5,5 +5,13 @@
 #java -cp rxtx-0.0.1-SNAPSHOT.jar:lib/*  com.xiaomeng.rxtx.Example -Djava.library.path=lib
 
 
+#or
+
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib
+#java -cp rxtx-0.0.1-SNAPSHOT.jar:lib/*  com.xiaomeng.rxtx.Example
+
+
+
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib
-java -cp rxtx-0.0.1-SNAPSHOT.jar:lib/*  com.xiaomeng.rxtx.Example
+java -cp rxtx-0.0.1-SNAPSHOT.jar:lib/*   -Djava.library.path=lib   com.xiaomeng.rxtx.Example

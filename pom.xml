@@ -29,6 +29,9 @@
                   <encoding>utf-8</encoding>
                   <source>1.8</source>
                   <target>1.8</target>
+                  <compilerArguments>
+                      <extdirs>lib</extdirs><!--指定外部lib-->
+                  </compilerArguments>
               </configuration>
           </plugin>
 
@@ -64,6 +67,7 @@
                   </archive>  
               </configuration>  
           </plugin>  
+
       </plugins>
   </build>
 
@@ -73,12 +77,13 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5.5</version>
 		</dependency>
-        <dependency>
-            <groupId>gnu.io</groupId>  <!--自定义-->
-            <artifactId>RXTXcomm</artifactId>    <!--自定义-->
-            <version>2.2pre2</version>
-            <scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
-            <systemPath>${basedir}/lib</systemPath> <!--项目根目录下的lib文件夹下-->
-        </dependency>
+
+<!--         <dependency> -->
+<!--             <groupId>gnu.io</groupId>  自定义 -->
+<!--             <artifactId>RXTXcomm</artifactId>    自定义 -->
+<!--             <version>2.2pre2</version> -->
+<!--             <scope>system</scope> system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它 -->
+<!--             <systemPath>${basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath> 项目根目录下的lib文件夹下 -->
+<!--         </dependency> -->
   </dependencies>
 </project>

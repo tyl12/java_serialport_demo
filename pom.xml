@@ -106,12 +106,12 @@
 <!-- 			<version>4.5.5</version> -->
 <!-- 		</dependency> -->
 
-        <dependency>
-            <groupId>gnu.io</groupId> 
-            <artifactId>RXTXcomm</artifactId>  
-            <version>2.2pre2</version>
-            <scope>system</scope> 
-            <systemPath>${basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>gnu.io</groupId>  -->
+<!--             <artifactId>RXTXcomm</artifactId>   -->
+<!--             <version>2.2pre2</version> -->
+<!--             <scope>system</scope>  -->
+<!--             <systemPath>${basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath> -->
+<!--         </dependency> -->
   </dependencies>
 </project>

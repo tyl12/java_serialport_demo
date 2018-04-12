@@ -11,15 +11,74 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <build>
+      <sourceDirectory>${project.basedir}/src/</sourceDirectory>
+      <resources>
+          <resource>
+              <directory>${project.basedir}/src/resources</directory>
+          </resource>
+      </resources>
+      <plugins>
+          <plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.7.0</version>
+              <configuration>
+                  <encoding>utf-8</encoding>
+                  <source>1.8</source>
+                  <target>1.8</target>
+              </configuration>
+          </plugin>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <version>2.10</version>
+              <executions>
+                  <execution>
+                      <id>copy-dependencies</id>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>copy-dependencies</goal>
+                      </goals>
+                      <configuration>
+                          <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                      </configuration>
+                  </execution>  
+              </executions>  
+          </plugin>  
+
+          <plugin>  
+              <groupId>org.apache.maven.plugins</groupId>  
+              <artifactId>maven-jar-plugin</artifactId>  
+              <version>2.6</version>  
+              <configuration>  
+                  <archive>  
+                      <manifest>  
+                          <addClasspath>true</addClasspath>  
+                          <classpathPrefix>lib/</classpathPrefix>  
+                          <mainClass>com.xiaomeng.rxtx.Example</mainClass>  
+                      </manifest>  
+                  </archive>  
+              </configuration>  
+          </plugin>  
+      </plugins>
+  </build>
+
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.5</version>
+		</dependency>
+        <dependency>
+            <groupId>gnu.io</groupId>  <!--自定义-->
+            <artifactId>RXTXcomm</artifactId>    <!--自定义-->
+            <version>2.2pre2</version>
+            <scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
+            <systemPath>${basedir}/lib</systemPath> <!--项目根目录下的lib文件夹下-->
+        </dependency>
   </dependencies>
 </project>
